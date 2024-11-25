@@ -1,17 +1,50 @@
+/* eslint-disable @next/next/no-img-element */
+"use client"; // To inform Next.js this is a client component
+
 import Image from "next/image";
 import styles from "./page.module.css";
+import { useState } from "react";
 
 export default function Home() {
+  const [count, setCount] = useState(0);
+  const incrementCount = () => {
+    setCount(count + 1);
+  };
   return (
     <div className={styles.page}>
       <main className={styles.main}>
         <Image
+          // className={styles.logo}
+          src="/boryana-yordanova.webp"
+          alt="Vercel logomark"
+          unoptimized="true"
+          width={200}
+          height={200}
+        />
+
+        <Image
+          // className={styles.logo}
+          src="/vercel.svg"
+          alt="Vercel logomark"
+          unoptimized="true"
+          width={200}
+          height={200}
+        />
+        <Image
           className={styles.logo}
           src="/next.svg"
           alt="Next.js logo"
+          unoptimized="true"
           width={180}
           height={38}
           priority
+        />
+        <img
+          src="/next.svg"
+          alt="Next.js logo"
+          unoptimized="true"
+          width={180}
+          height={38}
         />
         <ol>
           <li>
@@ -20,6 +53,11 @@ export default function Home() {
           <li>Save and see your changes instantly.</li>
         </ol>
 
+        <p>simple useState:</p>
+        <div>
+          <h1>Count: {count}</h1>
+          <button onClick={incrementCount}>Increment</button>
+        </div>
         <div className={styles.ctas}>
           <a
             className={styles.primary}
